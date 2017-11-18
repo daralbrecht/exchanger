@@ -11,7 +11,7 @@ class ImportRatesFromEcb
 
   # Instance initializer
   def initialize
-    @success = true
+    @success = false
   end
 
   # Download rates from ECB and store any new ones in database. Returns Struct
@@ -50,7 +50,6 @@ class ImportRatesFromEcb
     if rates_result.success?
       rates_result.rates
     else
-      @success = false
       @error_message = rates_result.error_message
       []
     end
@@ -74,6 +73,7 @@ class ImportRatesFromEcb
     result = ExchangeRate.import(columns, rates, on_duplicate_key_ignore: true)
     import_size = result.ids.size
 
+    @success = true
     @resolve_message = if import_size.zero?
                          'No new rates for import'
                        else
