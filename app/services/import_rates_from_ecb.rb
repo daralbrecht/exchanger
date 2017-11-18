@@ -60,7 +60,8 @@ class ImportRatesFromEcb
   # @return [Boolean]
   def rates_present?(rates_data)
     return true unless rates_data.empty?
-    @resolve_message = 'No rates given for import!'
+    @resolve_message = 'No rates given for import'
+    @success = true
     false
   end
 

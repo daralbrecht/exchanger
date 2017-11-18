@@ -64,5 +64,16 @@ RSpec.describe ImportRatesFromEcb do
       it { expect(call.error_message).to eq(nil) }
       it { expect { call }.to change(ExchangeRate, :count).by(1) }
     end
+
+    context 'when API returns empty data' do
+      let(:import_response) do
+        RatesData.new(true, [])
+      end
+
+      it { expect(call.success?).to eq(true) }
+      it { expect(call.resolve_message).to eq('No rates given for import') }
+      it { expect(call.error_message).to eq(nil) }
+      it { expect { call }.not_to change(ExchangeRate, :count) }
+    end
   end
 end
