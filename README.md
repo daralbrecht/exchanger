@@ -15,7 +15,7 @@ rake db:create db:migrate
 ```
 
 # Usage
-For tests you can run standard
+For tests you can run standard:
 ```
 rspec
 ```
@@ -25,8 +25,8 @@ For development you can use guard tool:
 ```
 guard
 ```
-It will run rubocop inspections whenever you update some file. Also it will run specs on file changes.
-Additional it will run `bundle` whenever you modify something in Gemfile.
+It will run rubocop inspections whenever you update any rb file. Also it will run specs on file changes.
+Additionaly it will trigger `bundle` whenever you modify something in Gemfile.
 
 To start console run:
 ```
