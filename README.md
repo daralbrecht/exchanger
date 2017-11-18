@@ -1,8 +1,5 @@
 # Leadfeeder job interview assignment
 
-# App code structure
-Place your app-specific code in app/ dir, and utility code that you'd like to extract to gems later to lib/ dir. Files in both of them are autoloaded from app.rb (via lib/environment.rb).
-
 # Installation
 * Clone the repo: `git clone https://github.com/daralbrecht/exchanger`
 * Install Ruby 2.4.2
