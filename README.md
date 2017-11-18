@@ -1,4 +1,4 @@
-# Leadfeeder job interview assignment
+# Exchanger
 
 # Installation
 * Clone the repo: `git clone https://github.com/daralbrecht/exchanger`
