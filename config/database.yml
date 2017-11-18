@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: exchanger_development
+
+test:
+  <<: *default
+  database: exchanger_test
+
+production:
+  <<: *default
+  database: exchanger_production
+  username: exchanger
+  password: <%= ENV['DATABASE_PASSWORD'] %>
