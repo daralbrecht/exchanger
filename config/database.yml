@@ -1,12 +1,10 @@
-default: &default
+development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-
-development:
-  <<: *default
   database: exchanger_development
 
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: exchanger_test

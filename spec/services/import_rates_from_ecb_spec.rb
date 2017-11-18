@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+# Struct definition for testing results
 RatesData = Struct.new(:success?, :rates, :error_message)
 
 RSpec.describe ImportRatesFromEcb do

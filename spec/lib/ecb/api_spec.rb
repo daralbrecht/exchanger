@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+# Struct definition for testing results
 RatesData = Struct.new(:success?, :rates, :error_message)
 
 RSpec.describe Ecb::API do
@@ -15,7 +16,7 @@ RSpec.describe Ecb::API do
 
       before do
         stub_request(:get, 'http://sdw.ecb.europa.eu/quickviewexport.do?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv')
-          .with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'})
+          .with(headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent' => 'Ruby' })
           .to_return(response)
       end
 
@@ -33,7 +34,7 @@ RSpec.describe Ecb::API do
 
       before do
         stub_request(:get, 'http://sdw.ecb.europa.eu/quickviewexport.do?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv')
-          .with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'})
+          .with(headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent' => 'Ruby' })
           .to_return(response)
       end
 
@@ -41,14 +42,14 @@ RSpec.describe Ecb::API do
       it { expect(download_rates.rates.size).to eq(0) }
       it do
         expect(download_rates.error_message)
-          .to eq("There is no series in the cube to be exported")
+          .to eq('There is no series in the cube to be exported')
       end
     end
 
     context 'when connection error occurs' do
       before do
         stub_request(:get, 'http://sdw.ecb.europa.eu/quickviewexport.do?SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&type=csv')
-          .with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'})
+          .with(headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent' => 'Ruby' })
           .to_raise(SocketError.new('You shall not pass!'))
       end
 

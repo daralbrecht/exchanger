@@ -11,4 +11,12 @@ Style/FrozenStringLiteralComment:
 Metrics/LineLength:
   Exclude:
     - config/initializers/*
+    - lib/tasks/*
     - Rakefile
+    - spec/fixtures/ecb/example_responses.rb
+    - spec/lib/ecb/api_spec.rb
+Metrics/BlockLength:
+  Exclude:
+    - spec/lib/ecb/api_spec.rb
+    - spec/models/exchange_rate_spec.rb
+    - spec/services/import_rates_from_ecb_spec.rb
