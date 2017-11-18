@@ -1,7 +1,7 @@
 namespace :ecb do
   desc "Fetch rates from European Central Bank and append any missing records to database"
   task import_rates: :environment do
-    import_result = ImportRatesFromEcb.new.call
+    import_result = ImportRatesFromEcb.call
 
     if import_result.success?
       puts import_result.resolve_message
