@@ -1,0 +1,14 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - db/schema.rb
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Exclude:
+    - config/initializers/*
+    - Rakefile
