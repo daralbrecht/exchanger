@@ -4,7 +4,6 @@ ruby '2.4.2'
 
 gem 'activerecord', '5.1.4', require: 'active_record'
 gem 'activerecord-import', '0.20.2'
-gem 'dotenv', '2.2.1'
 gem 'httparty', '0.15.6'
 gem 'pg', '0.21.0'
 gem 'rake', '12.3.0', require: false

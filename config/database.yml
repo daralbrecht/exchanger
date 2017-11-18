@@ -10,9 +10,3 @@ development:
 test:
   <<: *default
   database: exchanger_test
-
-production:
-  <<: *default
-  database: exchanger_production
-  username: exchanger
-  password: <%= ENV['DATABASE_PASSWORD'] %>

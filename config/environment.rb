@@ -4,10 +4,7 @@ require 'bundler'
 Bundler.require :default, ENV['ENV']
 require 'ostruct'
 
-# Load ENV configuration
-Dotenv.load ".env.#{ENV['ENV']}", '.env'
-
-# Initialize the Rails application.
+# Initialize the application.
 module Exchanger
   Config = OpenStruct.new
 
@@ -17,7 +14,7 @@ module Exchanger
     end
 
     def env
-      @env ||= ENV['RACK_ENV']
+      @env ||= ENV['ENV']
     end
   end
 

@@ -15,8 +15,9 @@ rake db:create db:migrate
 ```
 
 # Usage
-For tests you can run standard:
+For tests you need to first run migrations manually and then use standard command:
 ```
+ENV=test rake db:migrate
 rspec
 ```
 which will also generate coverage data under `/coverage` directory.
