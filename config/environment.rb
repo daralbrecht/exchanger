@@ -3,7 +3,6 @@ ENV['ENV'] ||= 'development'
 require 'bundler'
 Bundler.require :default, ENV['ENV']
 require 'ostruct'
-require 'logger'
 
 # Load ENV configuration
 Dotenv.load ".env.#{ENV['ENV']}", '.env'
@@ -20,11 +19,7 @@ module Exchanger
     def env
       @env ||= ENV['RACK_ENV']
     end
-
-    attr_accessor :logger
   end
-
-  self.logger = Logger.new(root.join('log', "#{env}.log"))
 
   Dir[root.join('config/initializers/**/*.rb')].each { |file| require file }
   Dir[root.join('app/models/*.rb')].each { |file| require file }
